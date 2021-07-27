@@ -1,0 +1,82 @@
+<Page
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <StackPanel  Orientation="Vertical">  
+  <!-- 
+  Version with my version GUI style: including margins, smaller buttons, and making the use of stack panels  
+  -->
+      <!-- Main Title-->
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+            <Label>Processo a iniciar:</Label>
+            <Button Content="Fórmulas" />
+        </StackPanel>
+
+        <!--First Grid-->
+        <StackPanel Orientation="Horizontal">
+            <Grid x:Name="ActiveValues">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+ 
+                <DataGrid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Grid.Column="0" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Picado" />
+                        <DataGridTextColumn Header="Lote ativo" />
+                        <DataGridTextColumn Header="Quantidade Estimada" />
+                        <DataGridTextColumn Header="Usado" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        
+            <!--Buttons-->
+            <StackPanel x:Name="ButtonsPanel" Orientation="Vertical" Margin="10,0,10,0">
+                <Button x:Name="AvailableButton" Margin="0,0,0,5" Content="Lotes disponiveis" Background="LightBlue" Height="104" Width="93" />
+                <Button x:Name="ActiveButton"  Margin="0,5,0,0" Content="Lote activo" Background="LightBlue" Height="104" Width="93" />
+            </StackPanel>
+
+            <Grid x:Name="StockValues">
+                <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+               
+            <DataGrid Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="3" Grid.Column="0" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Lote" />
+                    <DataGridTextColumn Header="Produto" />
+                    <DataGridTextColumn Header="Quantidade" />
+                    <DataGridTextColumn Header="Lote Interno" />
+                    <DataGridTextColumn Header="Armazém" />
+                </DataGrid.Columns>
+            </DataGrid>
+            </Grid>
+       
+            <Button x:Name="CancelButton"  Content="Cancelar Lotes" Height="61" Margin="5,0,5,0" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,90,0">
+            <Button x:Name="PrintButton" Content="Imprimir" Width="80" Margin="10"/>
+            <Button x:Name="StandByButton"  Content="Quarentena" Width="80" Margin="10"/>
+        </StackPanel>
+
+        <!-- Last line all cells have the same dimensions-->
+        <Grid x:Name="TotalValuesGrid"  Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0">Número de lotes:</Label>
+            <TextBox Grid.Column="1">10</TextBox>
+            <Label Grid.Column="2">Total Quantidade:</Label>
+            <TextBox Grid.Column="3">10</TextBox>
+        </Grid>
+    </StackPanel>
+</Page>
